@@ -1,1 +1,2 @@
 ADMINS = []
+CHANNELS = []

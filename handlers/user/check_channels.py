@@ -1,15 +1,13 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
-
 from loader import dp, bot
-
-channels = []
+from config import CHANNELS
 
 
 @dp.message_handler(Command("channels"))
 async def show_channels(message: types.Message):
     channels_format = str()
-    for channel in channels:
+    for channel in CHANNELS:
         chat = await bot.get_chat(channel)
         invite_link = await chat.export_invite_link()
         channels_format += f'Канал <a href="{invite_link}">{chat.title}</a>\n\n'
